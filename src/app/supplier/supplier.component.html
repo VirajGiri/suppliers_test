@@ -1,0 +1,58 @@
+<div class="container-fluid top-div">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="top-title ml-3" >Suppliers</h3>
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="bd-highlight col-sm-6">
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control"
+                   placeholder="Search supplier by Firm Name, Mobile Number"
+                   aria-label="Search supplier by Firm Name, Mobile Number" aria-describedby="addon-wrapping" [(ngModel)]="term">
+
+          </div>
+        </div>
+        <div class="bd-highlight">
+          <button type="button" class="btn btn-outline-danger text-sm-center" value="Add Supplier">Add Supplier</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-10 ml-3">
+      <div class="card shadow-sm bg-white rounded">
+        <table class="table table-responsive-sm">
+          <thead>
+          <tr class="card-header">
+            <th>Sr.No</th>
+            <th>Firm Name</th>
+            <th>Supplier Name</th>
+            <th>Contact Details</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>GSTIN</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of supplier | filter:term">
+            <td>{{product.id}}</td>
+            <td>{{product.business_name}}</td>
+            <td>{{product.supplier_name}}</td>
+            <td>{{product.supplier_mobile1}}</td>
+            <td>{{product.supplier_email}}</td>
+            <td>{{product.supplier_address}}</td>
+            <td>{{product.supplier_gst_no}}</td>
+            <td>
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="bd-highlight"><i class="fa fa-pencil text-danger"> </i> </div>
+                <div class="bd-highlight"> <i class="fa fa-remove text-danger"> </i> </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
